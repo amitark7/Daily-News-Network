@@ -1,0 +1,22 @@
+{
+  "name": "daily-news-network",
+  "version": "1.0.0",
+  "description": "This is news Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "amit-ark"
+  ],
+  "author": "Amit Ark7",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.10",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.2"
+  }
+}
