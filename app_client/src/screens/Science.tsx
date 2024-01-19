@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from 'react';
 import { newsContext } from '../contextNews/newsContext';
 import Card from '../component/Card';
 import { useIsFocused } from '@react-navigation/native';
+import Separater from '../component/Separater';
 
 const Science = () => {
   const {news,setData}=useContext(newsContext)
@@ -19,6 +20,7 @@ const Science = () => {
       {/* <Text style={styles.headerTxt}>Daily News Network -- Top Headlines</Text> */}
       <FlatList
         data={news}
+        ItemSeparatorComponent={Separater}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({item}: any) => <Card item={item} />}
       />

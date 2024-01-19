@@ -3,6 +3,7 @@ import React, {useContext, useEffect} from 'react';
 import Card from '../component/Card';
 import {newsContext} from '../contextNews/newsContext';
 import {useIsFocused,useRoute} from '@react-navigation/native';
+import Separater from '../component/Separater';
 
 const Health = () => {
   const {news, setData} = useContext(newsContext);
@@ -17,6 +18,7 @@ const Health = () => {
       {/* <Text style={styles.headerTxt}>Daily News Network -- Top Headlines</Text> */}
       <FlatList
         data={news}
+        ItemSeparatorComponent={Separater}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({item}: any) => <Card item={item} />}
       />

@@ -1,23 +1,27 @@
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {ActivityIndicator, FlatList, StyleSheet, Text, View} from 'react-native';
 import React, {useContext, useEffect} from 'react';
 import {newsContext} from '../contextNews/newsContext';
 import Card from '../component/Card';
-import { useIsFocused } from '@react-navigation/native';
+import {useIsFocused} from '@react-navigation/native';
+import Separater from '../component/Separater';
 
 const Home = () => {
   const {news, setData} = useContext(newsContext);
   const isFocused = useIsFocused();
 
   useEffect(() => {
-    if(isFocused){
-      setData('technology');
+    if (isFocused) {
+      setData('general');
     }
   }, [isFocused]);
-  return (
+  return news.length === 0 ? (
+    <ActivityIndicator size={40} color={'black'} style={{marginTop:20}}/>
+  ) : (
     <View style={styles.container}>
       {/* <Text style={styles.headerTxt}>Daily News Network -- Top Headlines</Text> */}
       <FlatList
         data={news}
+        ItemSeparatorComponent={Separater}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({item}: any) => <Card item={item} />}
       />
