@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "Daily_News_Network",
-=======
-  "name": "daily_new_network",
->>>>>>> 3cd7000219f58c8871aa174b8bd76c8070229843
   "version": "0.0.1",
   "private": true,
   "scripts": {
