@@ -1,4 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "app_client",
   "displayName": "app_client"
+=======
+  "name": "Daily News Network",
+  "displayName": "Daily News Network"
+>>>>>>> 3cd7000219f58c8871aa174b8bd76c8070229843
 }

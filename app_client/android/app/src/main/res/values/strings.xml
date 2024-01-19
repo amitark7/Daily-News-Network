@@ -1,3 +1,7 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">Daily News Network</string>
+=======
+    <string name="app_name">app_client</string>
+>>>>>>> 3cd7000219f58c8871aa174b8bd76c8070229843
 </resources>
