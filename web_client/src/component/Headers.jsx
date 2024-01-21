@@ -7,6 +7,8 @@ const Headers = () => {
   const[city,setCity]=useState('')
   const {setSearch}=useContext(newsContext)
 
+  
+
   const handleSearch=()=>{
     setSearch(city)
   }
