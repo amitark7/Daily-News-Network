@@ -1,17 +1,19 @@
 import React, { useContext, useState } from 'react'
 import { CiSearch } from "react-icons/ci";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { newsContext } from '../context/newsContext';
 
 const Headers = () => {
-  const[city,setCity]=useState('')
-  const {setSearch}=useContext(newsContext)
 
-  
 
-  const handleSearch=()=>{
+  const [city, setCity] = useState('')
+  const { setSearch } = useContext(newsContext)
+
+  const handleSearch = () => {
     setSearch(city)
   }
+
+
   return (
     <header className="p-3 text-bg-dark">
       <div className="container">
@@ -31,8 +33,8 @@ const Headers = () => {
           </ul>
 
           <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 position-relative" role="search">
-            <input type="search" className="form-control form-control-dark text-bg-dark" onChange={(e)=>setCity(e.target.value)} placeholder="Search..." aria-label="Search" />
-            <Link to='/search' className='text-white'><CiSearch onClick={handleSearch}  className='search_icon' /></Link>
+            <input type="search" className="form-control form-control-dark text-bg-dark" onChange={(e) => setCity(e.target.value)} placeholder="Search..." aria-label="Search" />
+            <Link to='/search' className='text-white'><CiSearch onClick={handleSearch} className='search_icon' /></Link>
           </form>
         </div>
       </div>
