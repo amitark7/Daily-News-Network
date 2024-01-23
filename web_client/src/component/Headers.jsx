@@ -5,14 +5,12 @@ import { newsContext } from '../context/newsContext';
 
 const Headers = () => {
 
-
   const [city, setCity] = useState('')
   const { setSearch } = useContext(newsContext)
 
   const handleSearch = () => {
     setSearch(city)
   }
-
 
   return (
     <header className="p-3 text-bg-dark">
