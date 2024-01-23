@@ -3,9 +3,9 @@ import Card from './Card'
 import { newsContext } from '../context/newsContext'
 
 const News = ({ category }) => {
+
   const { news, setNews } = useContext(newsContext)
 
-  console.log(news);
   useEffect(() => {
     setNews(category)
   }, [category])
@@ -23,7 +23,7 @@ const News = ({ category }) => {
         }
       </div>
     </div>
-    )
+  )
 }
 
 export default News
