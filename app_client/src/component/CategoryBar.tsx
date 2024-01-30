@@ -1,6 +1,6 @@
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useContext, useState } from 'react'
-import { newsContext } from '../contextNews/newsContext';
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {newsContext} from '../contextNews/newsContext';
 
 const CategoryBar = () => {
   const {news, setData} = useContext(newsContext);
@@ -16,46 +16,46 @@ const CategoryBar = () => {
   const [selectCategory, setSelectedCategory] = useState('Home');
   return (
     <FlatList
-    style={styles.categoryBarContainer}
-    horizontal
-    data={category}
-    keyExtractor={(item, index) => index.toString()}
-    renderItem={({item}) => (
-      <TouchableOpacity
-        style={[styles.categoryBar]}
-        onPress={() => {
-          setSelectedCategory(item);
-          if (item === 'Home') {
-            setData('general');
-          } else {
-            setData(item);
-          }
-        }}>
-        <Text
-          style={[
-            styles.categoryBarTxt,
-            {
-              color: selectCategory === item ? '#000' : '#99AAAB',
-              borderBottomColor: selectCategory === item ? '#000' : '',
-              borderBottomWidth: selectCategory === item ? 4 : 0,
-            },
-          ]}>
-          {item.toLocaleUpperCase()}
-        </Text>
-      </TouchableOpacity>
-    )}
-  />
-  )
-}
+      style={styles.categoryBarContainer}
+      horizontal
+      data={category}
+      keyExtractor={(item, index) => index.toString()}
+      renderItem={({item}) => (
+        <TouchableOpacity
+          style={[styles.categoryBar]}
+          onPress={() => {
+            setSelectedCategory(item);
+            if (item === 'Home') {
+              setData('general');
+            } else {
+              setData(item);
+            }
+          }}>
+          <Text
+            style={[
+              styles.categoryBarTxt,
+              {
+                color: selectCategory === item ? '#000' : '#99AAAB',
+                borderBottomColor: selectCategory === item ? '#000' : '',
+                borderBottomWidth: selectCategory === item ? 4 : 0,
+              },
+            ]}>
+            {item.toLocaleUpperCase()}
+          </Text>
+        </TouchableOpacity>
+      )}
+    />
+  );
+};
 
-export default CategoryBar
+export default CategoryBar;
 
 const styles = StyleSheet.create({
   categoryBarContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: 'red',
     borderBottomWidth: 1,
     borderBottomColor: 'lightgrey',
-    marginBottom:10
+    marginBottom: 10,
   },
   categoryBar: {
     marginHorizontal: 10,
@@ -69,4 +69,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     paddingVertical: 18,
   },
-})
+});
