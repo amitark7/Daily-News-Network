@@ -9,6 +9,7 @@ const NewsProvider = ({children}: any) => {
   const [news, setNews] = useState<any>([]);
   
   const setData = async (category: string) => {
+    setNews([])
     const country = 'in';
     const response = await fetch(`https://daily-news-network-546a.onrender.com/news`, {
       method: 'POST',

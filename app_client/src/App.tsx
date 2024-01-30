@@ -39,7 +39,6 @@ const App = () => {
   return (
     <NewsProvider>
       <StatusBar barStyle={'dark-content'} backgroundColor={'white'}/>
-      <Header />
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{

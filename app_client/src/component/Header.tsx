@@ -15,19 +15,12 @@ const Header = () => {
       <View style={styles.navbar}>
         <Text style={styles.headerTxt}>News Network</Text>
         <View style={styles.iconBox}>
-          {/* {ham ? (
-            <FontAwesome5
-              onPress={() => setHam(!ham)}
-              style={styles.icon}
-              name="times"
-              size={34}
-            />
-          ) : ( */}
-            <Image
-              source={{uri:'https://amitark7.github.io/Project-Images/NewsIcon.png'}}
-              style={{width:45,height:30}}
-            />
-          {/* )} */}
+          <Image
+            source={{
+              uri: 'https://amitark7.github.io/Project-Images/NewsIcon.png',
+            }}
+            style={{width: 45, height: 30}}
+          />
         </View>
       </View>
 
