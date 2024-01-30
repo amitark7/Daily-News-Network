@@ -9,7 +9,6 @@ import {
 import React, {useContext, useEffect, useState} from 'react';
 import {newsContext} from '../contextNews/newsContext';
 import Card from '../component/Card';
-import {useIsFocused} from '@react-navigation/native';
 import Separater from '../component/Separater';
 import Header from '../component/Header';
 
