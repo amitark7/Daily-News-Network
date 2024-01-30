@@ -14,7 +14,7 @@ import Header from '../component/Header';
 
 const Home = () => {
   const {news, setData} = useContext(newsContext);
-  
+
   const [category, setCategory] = useState([
     'Home',
     'science',
@@ -25,48 +25,48 @@ const Home = () => {
     'technology',
   ]);
   const [selectCategory, setSelectedCategory] = useState('Home');
-  useEffect(()=>{
-    setData('general')
-  },[])
+  useEffect(() => {
+    setData('general');
+  }, []);
 
   return (
     <>
       <Header />
+      <FlatList
+        style={styles.categoryBarContainer}
+        horizontal
+        data={category}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({item}) => (
+          <TouchableOpacity
+            style={[styles.categoryBar]}
+            onPress={() => {
+              setSelectedCategory(item);
+              if (item === 'Home') {
+                setData('general');
+              } else {
+                setData(item);
+              }
+            }}>
+            <Text
+              style={[
+                styles.categoryBarTxt,
+                {
+                  color: selectCategory === item ? '#000' : '#99AAAB',
+                  borderBottomColor: selectCategory === item ? '#000' : '',
+                  borderBottomWidth: selectCategory === item ? 4 : 0,
+                },
+              ]}>
+              {item.toLocaleUpperCase()}
+            </Text>
+          </TouchableOpacity>
+        )}
+      />
       {news.length === 0 ? (
         <ActivityIndicator size={40} color={'black'} style={{marginTop: 20}} />
       ) : (
         <View style={styles.container}>
           {/* <Text style={styles.headerTxt}>Daily News Network -- Top Headlines</Text> */}
-          <FlatList
-            style={styles.categoryBarContainer}
-            horizontal
-            data={category}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({item}) => (
-              <TouchableOpacity
-                style={[styles.categoryBar]}
-                onPress={() => {
-                  setSelectedCategory(item);
-                  if (item === 'Home') {
-                    setData('general');
-                  } else {
-                    setData(item);
-                  }
-                }}>
-                <Text
-                  style={[
-                    styles.categoryBarTxt,
-                    {
-                      color: selectCategory === item ? '#000' : '#99AAAB',
-                      borderBottomColor: selectCategory === item ? '#000' : '',
-                      borderBottomWidth: selectCategory === item ? 4 : 0,
-                    },
-                  ]}>
-                  {item.toLocaleUpperCase()}
-                </Text>
-              </TouchableOpacity>
-            )}
-          />
           <FlatList
             data={news}
             ItemSeparatorComponent={Separater}
@@ -96,7 +96,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderBottomWidth: 1,
     borderBottomColor: 'lightgrey',
-    marginBottom:10
+    marginBottom: 10,
+    flexGrow: 0,
   },
   categoryBar: {
     marginHorizontal: 10,
