@@ -23,26 +23,6 @@ const Header = () => {
           />
         </View>
       </View>
-
-      {/* Category List  */}
-      {/* <View
-        style={[styles.categoryContainer, {marginRight: ham ? '0%' : '-50%'}]}>
-        <TouchableOpacity onPress={() => handleCatogery('/')}>
-          <Text style={styles.text}>Home</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => handleCatogery('sports')}>
-          <Text style={styles.text}>Sports</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => handleCatogery('science')}>
-          <Text style={styles.text}>Science</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => handleCatogery('health')}>
-          <Text style={styles.text}>Health</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => setCategory('technology')}>
-          <Text style={styles.text}>Technology</Text>
-        </TouchableOpacity>
-      </View> */}
     </>
   );
 };
