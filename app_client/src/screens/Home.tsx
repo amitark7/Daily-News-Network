@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   categoryBarContainer: {
     backgroundColor: '#fff',
     borderBottomWidth: 1,
-    borderBottomColor: '#777E8B',
+    borderBottomColor: '#DAE0E2',
     marginBottom: 10,
     flexGrow: 0,
   },
