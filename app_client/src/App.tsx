@@ -7,12 +7,6 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import Splash from './screens/Splash';
 import Home from './screens/Home';
-import Sports from './screens/Sports';
-import Science from './screens/Science';
-import Technology from './screens/Technology';
-import Health from './screens/Health';
-import Entertainment from './screens/Entertainment';
-import Business from './screens/Business';
 import NewsProvider from './contextNews/newsContext';
 
 export type StackProp = {
@@ -21,37 +15,38 @@ export type StackProp = {
 };
 const Stack = createNativeStackNavigator<StackProp>();
 const Tab = createMaterialTopTabNavigator();
-export const HomeTabs = () => {
-  return (
-    <>
-      <Header />
-      <Tab.Navigator
-        screenOptions={{
-          tabBarAndroidRipple: {borderless: false},
+// export const HomeTabs = () => {
+//   return (
+//     <>
+//       <Header />
+//       <Tab.Navigator
+//         screenOptions={{
+//           tabBarAndroidRipple: {borderless: false},
           
-        }}>
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Sports" component={Sports} />
-        <Tab.Screen name="Science" component={Science} />
-        {/* <Tab.Screen name="Technology" component={Technology} /> */}
-        <Tab.Screen name="Health" component={Health} />
-        {/* <Tab.Screen name="Entertainment" component={Entertainment} />
-        <Tab.Screen name="Business" component={Business} /> */}
-      </Tab.Navigator>
-    </>
-  );
-};
+//         }}>
+//         <Tab.Screen name="Home" component={Home} />
+//         <Tab.Screen name="Sports" component={Sports} />
+//         <Tab.Screen name="Science" component={Science} />
+//         {/* <Tab.Screen name="Technology" component={Technology} /> */}
+//         <Tab.Screen name="Health" component={Health} />
+//         {/* <Tab.Screen name="Entertainment" component={Entertainment} />
+//         <Tab.Screen name="Business" component={Business} /> */}
+//       </Tab.Navigator>
+//     </>
+//   );
+// };
 const App = () => {
   return (
     <NewsProvider>
       <StatusBar barStyle={'dark-content'} backgroundColor={'white'}/>
+      <Header />
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
             header: () => null,
           }}>
           <Stack.Screen name="Splash" component={Splash} />
-          <Stack.Screen name="HomeTab" component={HomeTabs} />
+          <Stack.Screen name="HomeTab" component={Home} />
         </Stack.Navigator>
       </NavigationContainer>
     </NewsProvider>

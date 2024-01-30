@@ -1,31 +1,78 @@
-import {ActivityIndicator, FlatList, StyleSheet, Text, View} from 'react-native';
-import React, {useContext, useEffect} from 'react';
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import React, {useContext, useEffect, useState} from 'react';
 import {newsContext} from '../contextNews/newsContext';
 import Card from '../component/Card';
 import {useIsFocused} from '@react-navigation/native';
 import Separater from '../component/Separater';
+import Header from '../component/Header';
 
 const Home = () => {
   const {news, setData} = useContext(newsContext);
-  const isFocused = useIsFocused();
+  const [category, setCategory] = useState([
+    'Home',
+    'science',
+    'sports',
+    'business',
+    'health',
+    'entertainment',
+    'technology',
+  ]);
+  const [selectCategory, setSelectedCategory] = useState('Home');
 
-  useEffect(() => {
-    if (isFocused) {
-      setData('general');
-    }
-  }, [isFocused]);
-  return news.length === 0 ? (
-    <ActivityIndicator size={40} color={'black'} style={{marginTop:20}}/>
-  ) : (
-    <View style={styles.container}>
-      {/* <Text style={styles.headerTxt}>Daily News Network -- Top Headlines</Text> */}
-      <FlatList
-        data={news}
-        ItemSeparatorComponent={Separater}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({item}: any) => <Card item={item} />}
-      />
-    </View>
+  return (
+    <>
+      <Header />
+      {news.length === 0 ? (
+        <ActivityIndicator size={40} color={'black'} style={{marginTop: 20}} />
+      ) : (
+        <View style={styles.container}>
+          {/* <Text style={styles.headerTxt}>Daily News Network -- Top Headlines</Text> */}
+          <FlatList
+            style={styles.categoryBarContainer}
+            horizontal
+            data={category}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({item}) => (
+              <TouchableOpacity
+                style={[styles.categoryBar]}
+                onPress={() => {
+                  setSelectedCategory(item);
+                  if (item === 'Home') {
+                    setData('general');
+                  } else {
+                    setData(item);
+                  }
+                }}>
+                <Text
+                  style={[
+                    styles.categoryBarTxt,
+                    {
+                      color: selectCategory === item ? '#000' : '#99AAAB',
+                      borderBottomColor: selectCategory === item ? '#000' : '',
+                      borderBottomWidth: selectCategory === item ? 4 : 0,
+                    },
+                  ]}>
+                  {item.toLocaleUpperCase()}
+                </Text>
+              </TouchableOpacity>
+            )}
+          />
+          <FlatList
+            data={news}
+            ItemSeparatorComponent={Separater}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({item}: any) => <Card item={item} />}
+          />
+        </View>
+      )}
+    </>
   );
 };
 
@@ -41,5 +88,22 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginTop: 20,
     paddingHorizontal: 12,
+  },
+  categoryBarContainer: {
+    backgroundColor: '#fff',
+    borderBottomWidth: 1,
+    borderBottomColor: 'lightgrey',
+  },
+  categoryBar: {
+    marginHorizontal: 10,
+    // height:60,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  categoryBarTxt: {
+    fontSize: 15,
+    color: '#000',
+    fontWeight: 'bold',
+    paddingVertical: 18,
   },
 });
